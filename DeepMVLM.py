@@ -20,7 +20,7 @@ def DL_nose_tip(head):
 
     dm = deepmvlm.DeepMVLM(config)
     landmarks = dm.predict_one_file(head)
-    dm.visualise_mesh_and_landmarks(head, landmarks)
+    #dm.visualise_mesh_and_landmarks(head, landmarks)
 
 
     return landmarks[45,:]

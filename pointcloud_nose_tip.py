@@ -38,9 +38,9 @@ def extract_nose_from_pcd(pcd):
         recentered_head, R, centroid = pca_align_pointcloud(pcd)
 
         # Nose extraction. After correct alignment, the nose will be the point in the face pointcloud with the lowest value (y points towards the face from the center of the pointcloud). 
-        # To mitigate the impact of outliers or imperfections in the point cloud the nose tip is estimated by averaging the 50 points with the smallest Y-coordinate.
+        # To mitigate the impact of outliers or imperfections in the point cloud the nose tip is estimated by averaging the 10 points with the smallest Y-coordinate.
         x_vals = recentered_head.points[:, 1]
-        min_x_idx = np.argsort(x_vals)[:50]
+        min_x_idx = np.argsort(x_vals)[:10]
         nose_tip = np.mean(recentered_head.points[min_x_idx], axis=0)
 
         # After extracting the nose_tip we can recompute the coordinate of that point in the original coordinate system and ensure consistency in the following steps
@@ -51,7 +51,7 @@ def extract_nose_from_pcd(pcd):
         #pl = pv.Plotter()
         #pl.add_mesh(recentered_head, color="yellow", point_size=5, render_points_as_spheres=True)
         #pl.add_mesh(pv.PolyData(orig_nose_area), color="yellow", point_size=8, render_points_as_spheres=True)
-        #pl.add_mesh(pcd, color="blue", point_size=5, render_points_as_spheres=True)
+        #pl.add_mesh(pv.PolyData(pcd.points), color="peachpuff", point_size=2, render_points_as_spheres=True)
         #pl.add_mesh(pv.Sphere(center=original_nose_tip, radius=3), color="red")
         #pl.add_axes_at_origin(x_color='red', y_color='green', z_color='blue')
         #pl.show()

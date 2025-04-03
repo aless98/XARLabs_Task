@@ -27,7 +27,7 @@ def MarchingCubes(image , value):
     # Smoothing of the surface 
     smoother = vtk.vtkWindowedSincPolyDataFilter()
     smoother.SetInputConnection(clean.GetOutputPort())
-    smoother.SetNumberOfIterations(30)
+    smoother.SetNumberOfIterations(50)
     smoother.BoundarySmoothingOff()
     smoother.FeatureEdgeSmoothingOff()
     smoother.SetFeatureAngle(120)
@@ -161,14 +161,14 @@ def Head_segmentation(dicom_dir):
     
     ######### Plotter: for visualization purposes only #################################
     #pl = pv.Plotter()
-    #pl.add_mesh(mesh)
+    #pl.add_mesh(mesh, color="peachpuff")
     #pl.add_axes_at_origin(x_color='red', y_color='green', z_color='blue')
     #pl.show_axes()
     #pl.show()
     ###################################################################################
     
     # Save the mesh as a .stl
-    mesh.save("head2.stl")
+    mesh.save("head1.stl")
 
    
 
