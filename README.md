@@ -6,7 +6,7 @@ This repository provides a pipeline for fully automated processing of head CT/MR
 - **DICOM_reader.py**  
   Reads a DICOM dataset, extracts image metadata, and reconstructs the image volume as a 3D matrix.
 
-- **DeePMVLM.py**  
+- **DeepMVLM.py**  
   Extracts facial landmarks from a 3D head/face mesh.  
   ⚠️ *Note:* To use this script, download the github repo of the model here: https://github.com/RasmusRPaulsen/Deep-MVLM and make sure to place it inside the directory containing these scripts.
   ⚠️ *Note:* Inside `Deep-MVLM/configs`, edit the `DTU3D-depth-MRI.json` file in this way:
