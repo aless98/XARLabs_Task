@@ -39,5 +39,4 @@ This repository provides a pipeline for fully automated processing of head CT/MR
 - **requirements.txt**   
   Contains the libraries required
 
-
-![result](https://github.com/user-attachments/assets/ef2a1ed5-5373-41ea-8829-ad4b6b96f746)
+![result](https://github.com/user-attachments/assets/a7287f5d-d68c-414c-a7be-2918fab3cee8)
