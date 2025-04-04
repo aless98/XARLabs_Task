@@ -3,8 +3,6 @@ This repository provides a pipeline for fully automated processing of head CT/MR
 
 ### Script Overview
 
-### Script Overview
-
 - **DICOM_reader.py**  
   Reads a DICOM dataset, extracts image metadata, and reconstructs the image volume as a 3D matrix.
 
