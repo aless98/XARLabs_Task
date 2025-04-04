@@ -1,7 +1,6 @@
 import numpy as np
 import pyvista as pv
 from pydicom.filereader import dcmread
-import matplotlib.pyplot as plt
 from vtkmodules.util.numpy_support import vtk_to_numpy, numpy_to_vtk
 import open3d as o3d
 import numpy as np
@@ -12,9 +11,9 @@ import DeepMVLM
 import pointcloud_aligner
 import time
 
-# Directory where the DICOM files are stored
-dicom_dir = "PZ1"
 
+# Directory where the DICOM files are stored
+dicom_dir = "PZ2"
 # Automatically extract the complete head as a mesh from the DICOM Images and save it as an .stl file
 start_DICOM_extraction = time.time() 
 Head_extraction.Head_segmentation(dicom_dir) #--> comment this if the head is already segmented
@@ -87,7 +86,7 @@ pl.add_legend([["DICOM Nose Tip", "red"],["PCD Nose Tip", "yellow"]])
 pl.show()
 ###################################################################################
 
-# we compute the error between the 2 extracted and then aligned nose_tip points#
+# We compute the error between the 2 extracted and then aligned nose_tip points#
 
 print(f"error_between_nose_tips:{np.linalg.norm(DICOM_nose_tip-registered_nose_tip)}")
 

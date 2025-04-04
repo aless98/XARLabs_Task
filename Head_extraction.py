@@ -27,13 +27,10 @@ def MarchingCubes(image , value):
     # Smoothing of the surface 
     smoother = vtk.vtkWindowedSincPolyDataFilter()
     smoother.SetInputConnection(clean.GetOutputPort())
-    smoother.SetNumberOfIterations(50)
-    smoother.BoundarySmoothingOff()
-    smoother.FeatureEdgeSmoothingOff()
+    smoother.SetNumberOfIterations(40)
+    smoother.BoundarySmoothingOn()
     smoother.SetFeatureAngle(120)
-    smoother.SetPassBand(0.05)
-    smoother.NonManifoldSmoothingOff()
-    smoother.NormalizeCoordinatesOff()
+    smoother.SetPassBand(0.1)
     smoother.Update()
     return smoother.GetOutput()
 
@@ -144,7 +141,7 @@ def Head_segmentation(dicom_dir):
     connectivity.SetExtractionModeToLargestRegion()
     connectivity.Update()
     
-    # NOT MANDATORY: Applying this we can close the hole ofthe neck or not
+    # NOT MANDATORY: Applying this we can close the hole of the neck or not
     filling = vtk.vtkFillHolesFilter()
     filling.SetInputData(connectivity.GetOutput())
     filling.SetHoleSize(10000)
@@ -158,17 +155,18 @@ def Head_segmentation(dicom_dir):
 
     # 5. Wrap in pyvista for easy visualization
     mesh = pv.wrap(transform_filter_final.GetOutput())
-    
+    mesh = mesh.triangulate()
+    mesh.flip_normals() # normals needed to be flipped because they were pointing inside the head
     ######### Plotter: for visualization purposes only #################################
-    #pl = pv.Plotter()
-    #pl.add_mesh(mesh, color="peachpuff")
-    #pl.add_axes_at_origin(x_color='red', y_color='green', z_color='blue')
-    #pl.show_axes()
-    #pl.show()
+    pl = pv.Plotter()
+    pl.add_mesh(mesh, color="peachpuff")
+    pl.add_axes_at_origin(x_color='red', y_color='green', z_color='blue')
+    pl.show_axes()
+    pl.show()
     ###################################################################################
     
     # Save the mesh as a .stl
-    mesh.save("head1.stl")
+    mesh.save("head2.stl")
 
    
 
