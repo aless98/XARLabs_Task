@@ -59,7 +59,7 @@ source_pcd.points = o3d.utility.Vector3dVector(np.asarray(face_pcd.points))
 target_pcd = o3d.geometry.PointCloud()
 target_pcd.points = o3d.utility.Vector3dVector(np.asarray(head_from_DICOM.points))
 
-downsampled_source = source_pcd.voxel_down_sample(voxel_size = 2)
+downsampled_source = source_pcd.voxel_down_sample(voxel_size = 2) # --> increase the voxel size value to make the downsample more aggressive and accellerate the registration
 downsampled_target = target_pcd.voxel_down_sample(voxel_size = 2)
 
 # Class containing the function to perform ICP+perturbation ---> we avoid local minima and arrive at the best solution.

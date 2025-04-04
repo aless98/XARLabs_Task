@@ -1,14 +1,7 @@
 import numpy as np
-import pydicom.fileset
 import pyvista as pv
-import os
-import pydicom
-from pydicom.filereader import dcmread
-import matplotlib.pyplot as plt
-import sys
-import glob
 import vtk
-from vtkmodules.util.numpy_support import vtk_to_numpy, numpy_to_vtk
+from vtkmodules.util.numpy_support import numpy_to_vtk
 import DICOM_reader
 
 
