@@ -8,7 +8,7 @@ This repository provides a pipeline for fully automated processing of head CT/MR
 
 - **DeePMVLM.py**  
   Extracts facial landmarks from a 3D head/face mesh.  
-  ⚠️ *Note:* To use this script, make sure to place the `Deep-MVLM` folder inside the directory containing these scripts.
+  ⚠️ *Note:* To use this script, download the github repo of the model here: https://github.com/RasmusRPaulsen/Deep-MVLM and make sure to place it inside the directory containing these scripts.
 
 - **Head_extraction.py**  
   Automatically segments the patient's head using VTK libraries.
