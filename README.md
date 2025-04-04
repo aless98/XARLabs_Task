@@ -26,5 +26,8 @@ This repository provides a pipeline for fully automated processing of head CT/MR
 - **.ply** and **.stl** files  
   These contain the face point clouds and segmented head models of two patients.
 
+- **requirements.txt**   
+  Contains the libraries required
+
 
 ![result](https://github.com/user-attachments/assets/ef2a1ed5-5373-41ea-8829-ad4b6b96f746)
